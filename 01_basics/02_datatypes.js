@@ -28,6 +28,7 @@ console.log(typeof"shivam");
 
 console.log(typeof null);  //o/p is object
 console.log(typeof undefined);//o/p is undefined
+console.log("shivam")
 
 
 
