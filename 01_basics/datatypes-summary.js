@@ -15,7 +15,6 @@
 
 
 //non -primitive(reference)
-
 //types: array, objects, functions
 
 const id = Symbol('123')
@@ -43,3 +42,32 @@ const myFunction = function(){
 console.log(typeof id);
 
 //typeof agr krnege null ka to ans object aayega
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// stack(primitive ), heap memory(non-primitve)
+//jab stack memory declare hoti h to uski copy milti h
+//jab heap m define hoti h to waha se milta h reference original value m changes hote hain
+ let mychannel =" shivamyoutubes"
+
+ let anothername = mychannel
+ anothername= "chaiaurcode"
+ console.log(anothername);
+ console.log(mychannel);
+ //isme alag alag output milenge kyuki changes jo hue h vo copy m hue h
+
+
+//object creation
+ let userOne= {
+    email:"shivam@gmail.com"
+
+ }
+let userTwo= userOne
+
+userTwo.email= "bhati@gmail.com"
+console.log(userOne.email);
+console.log(userTwo.email);
+
+//dono ka same output hoga kyuki jo changes hue h vo original data m hue h because of non-primitive datatype
+
