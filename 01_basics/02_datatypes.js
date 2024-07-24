@@ -1,4 +1,7 @@
-"use strict"; //treat all jks code as newer version 
+
+//null is a representation of empty value
+let state=null
+//undefined =>value is not"use strict"; //treat all jks code as newer version 
 //you can avoid semicolon ;
 //alert(3+3)  //we are using nodejs , not browser
 
@@ -16,10 +19,7 @@ let isloggedIn= true
 // string --> ""
 //boolean-->true/false
 
-//null => standalone value mtlb ye bhi ek datatype h
-//null is a representation of empty value
-let state=null
-//undefined =>value is not assigned
+//null => standalone va assigned
 //symbol => for unique 
 
 
@@ -28,8 +28,8 @@ console.log(typeof"shivam");
 
 console.log(typeof null);  //o/p is object
 console.log(typeof undefined);//o/p is undefined
-console.log("rahl")
+console.log("rahl");
 
 
-
+console.log("shivam")
 
