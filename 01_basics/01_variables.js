@@ -15,4 +15,5 @@ because of issue in block scope and functional scope
 */
 console.table([accountEmail,accountPassword,accountCity,accouintState])
 
-console.log(accountId)
+console.log(accountId);
+
