@@ -35,9 +35,9 @@ console.log(newSTRone.trim());
 //trim remove the spaces 
 
 const url= "https://hitesh.com/hitesh%20chaudhary"
-console.log(url.replace('%20', '-'));
+console.log(url.replace('%20', '-')); //ye replace krdega - iss se
 
-console.log(url.includes('hitesh'))
+console.log(url.includes('hitesh')) //kya hmare data m hitesh h ya nahi
 
 //converting upper string into array using split
 console.log(gameName.split('-'));

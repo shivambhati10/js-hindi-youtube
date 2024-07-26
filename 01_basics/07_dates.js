@@ -28,8 +28,9 @@ console.log(newDate.toLocaleString());
 
 let newDate1= new Date();
 // console.log(newDate1);
-// console.log(newDate1.getDate()); //iss se bss agr hum month print hoga
+//console.log(newDate1.getDate()); //iss se bss agr hum month print hoga
 
+// 
 //FEATURES OF LOCALESTRING
 //localestring khud hee ek object h
 //jo output aara tha usko aap khud customize kr skte ho
