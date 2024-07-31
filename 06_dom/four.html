@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai or code</title>
+</head>
+<body style="background-color:#212121; color: #fff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+    
+</body>
+//list item add krna-->parent ko select krenge uske andar ek aur list item add krdenge
+//list item bhot baar use krna h add krane ke liye alag alag languages-->to use functions
+<script>
+    function addLanguage(langname){ //lamgname is the name of language to add
+        //kaam kya kya krna h iske liye?
+        //1.create list item     
+         const li=document.createElement('li')
+         //ab iske andar kchh value bhi add krni h langname
+         li.innerHTML=`${langname}` //yaha tak element create hogya h
+        //ab list item ko attach krna h ul ke andar,and append krdena h child ko
+        document.querySelector('.language').appendChild(li) //yaha par document m attach krdiya h
+        //use class waala queryselector
+
+//basic idea h ye---> dikkat isme ye h ki saara tree traverse krna pdta h 
+    }
+//ab iss method ko chalane ke liye,element ko select krke kaam m lene ke liye,agr 1000 hote to dikkat hoti
+
+addLanguage("python")
+addLanguage("typescript")
+
+// 2nd method -->optimized method
+
+function addOptilanguauge(langname){//isme aapko pura tree traverse nahi krna hoga ,,for bigger project
+    //list item create
+    const li=document.createElement('li');
+    //bss ye waala step alag h upar waale se
+    const addText=li.appendChild(document.createTextNode(langname)) //ye innertext se dusra waala method h
+    document.querySelector('.language').appendChild(li)
+
+}
+addOptilanguauge('golang')
+
+// edit the values
+//1.
+const secondLang=document.querySelector("li:nth-child(2)")//li ka konsa element select krna h uske liye
+// secondLang.innerHTML="mojo" //innerHtml is not optimized
+
+//2.
+//using another optimized method for edit
+const newLi=document.createElement('li')
+newLi.textContent="mmojo"
+//now add it to the document
+secondLang.replaceWith(newLi) //ab hua ye method pura
+
+//3.
+const firstLang=document.querySelector("li:first-child")
+firstLang.outerHTML='<li>Typescript<li>'
+
+
+//REMOVE
+const lastLang=document.querySelector("li:last-child")
+lastLang.remove()
+
+
+
+</script>
+
+</html>
