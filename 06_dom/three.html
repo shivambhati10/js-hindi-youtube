@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAI OR CODE</title>
+</head>
+<body style="background-color: #212121;color:#fff">
+
+
+</body>>
+    
+<script> 
+  //iss pure div ko hum ek function m bhi wrap kr skte h
+  //function ke through hum isme loop lga skte h text color change kr skte h and etc etc
+    // ek baar ye pata chal jaaye ki element kaise select krna h, to uske baad loop bhi laga lunga function m bhi rkh dunga
+   const div= document.createElement('div') //ye hmne ek div element bana diya
+   console.log(div);
+   div.className="main"
+   div.id= Math.round(Math.random()*10+1) 
+   //agr hum atttributes isme add krna chahte h to
+   div.setAttribute("title","generated title")
+   div.style.backgroundColor="green"
+   div.style.padding="12px";
+   //abhi ye sab display nahi hoga upar waali cheezien, kyuki ye div abhi memory ke andar h
+   //page par tab attach hoga jab document se bolenge child ko attach krne ko
+   //ye innertext phle value ko laata h then firr set krnta h value m
+   //1.
+//    div.innerText="chai or code"
+   //log neeche waale ko jaada prefer krte ,kyuki ye value ko directly hee set krdeta h
+   //2.
+   const addText=document.createTextNode("chai aur code")
+   div.appendChild(addText)//div ki body m daalna
+
+   //now attaching with the document
+   document.body.appendChild(div)
+
+
+
+</script>
+</html>
