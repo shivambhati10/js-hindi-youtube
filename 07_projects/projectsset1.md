@@ -41,3 +41,33 @@ buttons.forEach(function(button){
   })
 });
 ```
+
+## project 2 solution
+
+```javascript
+//isme submit waala event h
+//jab bhi form submit hota h to uski value URL m ya server ke paas chli jaati
+//value rokne ke liye-->form ka default action rokne ke liye use events
+const form = document.querySelector('form');
+//agr hum height or weight ki value function ke bahar lenge to, empty value milegi humko
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const height = parseInt(Document.querySelector('#height').value);
+  //iss se jo value aari h form m height waale column m string ki form m usko convert krdenge integer ki form m
+  const weight = parseInt(Document.querySelector('#weight').value);
+  const results = Document.querySelector('#results');
+  //hum isko andar isley likh rhe h kyuki hume submit krne ke baad values chahiye
+
+  if (height === '' || height < 0 || isNAN(height)) {
+    results.innerHTML = `please give the valid height ${height}`;
+  } else if (weight === '' || weight < 0 || isNAN(weight)) {
+    results.innerHTML = `please give the valid weight ${weight}`;
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    //show the results
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
+});
+
+```
+
