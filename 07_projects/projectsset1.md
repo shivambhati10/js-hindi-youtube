@@ -70,4 +70,21 @@ form.addEventListener('submit', function (e) {
 });
 
 ```
+## project 3 solution code
+```javascript
+const clock=document.getElementById('clock')
+
+//ek clock display krvani h...jo hare sec change ho
+//aisa method hona chahiye jo har moment pr run ho, or jisse m control kr sku
+
+//ye kehta h ki mujhe ek method dedo or bta do kitni baar run krna h, setinterval is use for events
+setInterval(function(){
+  let date =new Date()
+// console.log(date.toLocaleTimeString());
+clock.innerHTML=date.toLocaleTimeString();
+},1000);//iss se har sec ka time dikhayega
+
+```
+
+
 
