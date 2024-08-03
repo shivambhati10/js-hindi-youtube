@@ -87,4 +87,117 @@ clock.innerHTML=date.toLocaleTimeString();
 ```
 
 
+## project 4 solution code
+```javascript
+let randomNumber=parseInt(Math.random()*100+1);
+
+const submit=document.querySelector('#subt');
+
+//now take user input
+const userInput=document.querySelector('#guessField');
+//ye previous guess of arrrays h
+const guessSlot=document.querySelector('.guesses');
+const remaining=document.querySelector('.lastResult');
+const lowOrHi=document.querySelector('.lowOrHi');
+const startOver=document.querySelector('.resultParas');
+
+const p=document.createElement('p');
+//ye neeche waala ek array hoga,jo user value guess krega usko dikha denge taaki user dubara se usi samne value ko guess na kre
+
+let prevGuess=[];
+let numGuess=1;
+
+let playGame=true;//games m iss condition ka true hona jroori hota 
+if(playGame){
+  submit.addEventListener('click',function(e){
+    e.preventDefault();//kyuki form h taaki values server tak na jaaye
+    const guess=parseInt(userInput.value);
+    console.log(guess);
+    validateGuess(guess);
+  });
+}
+
+function validateGuess(guess){
+  if(isNaN(guess)){
+    alert('Please enter a valid number');
+  } else if(guess<1){
+    alert('Please enter a  number greater than 1');
+  } else if(guess>100){
+    alert('Please enter a  number less than 100');
+  }else{
+    prevGuess.push(guess)
+    if(numGuess==11){
+      displayGuess(guess)
+      displayMessage(`game over. Random number was ${randomNumber}`)
+      endGame()
+    }else{
+      displayGuess(guess)
+      checkGuess(guess)
+    }
+
+  }
+}
+
+function checkGuess(guess){
+  //kahi value random number ke equal to nahi h,and value should be in between 1 and 
+  if(guess===randomNumber){
+    displayMessage(`you guessed it right `);
+    endGame();
+
+  }else if(guess<randomNumber){
+   displayMessage(`number is tooo low`);
+  }else if(guess>randomNumber){
+    displayMessage(`number is tooo high`);
+ }
+  
+}
+function displayGuess(guess){
+//input value ko dubara khali krdenge,innerHTML m apna guess add krdenge,numbers ko kam krdenge
+userInput.value='';
+guessSlot.innerHTML+= `${guess}  `;//value push krre h
+numGuess++;
+remaining.innerHTML=`${11-numGuess}`;
+
+}
+
+function displayMessage(message){
+// low or hi m message paaas krega
+lowOrHi.innerHTM=`<h2>${message}</h2>`;
+}
+
+function endGame(){
+  //game end bhi krna podega
+  userInput.value=''; //value khali krdi
+  userInput.setAttribute('disabled','');//user koi or value set na kr paaye ,key value pair h
+  p.classList.add('button');
+  p.innerHTML=`<h2 id="newGame"> Start new Game </h2>`;
+  startOver.appendChild(p);//p add krdiya startOver m. 
+  playGame=false;
+  newGame();
+
+}
+
+
+function newGame(){
+  // new game bhi shuru krna pdega
+  const newGamebutton=document.querySelector('#newGame');
+  newGamebutton.addEventListener('click',
+  function(e){
+    //saari values or variables ko reset krdenge
+     randomNumber=parseInt(Math.random()*100 +1);
+     prevGuess=[];
+     numGuess=1;
+     guessSlot.innerHTML= '';
+     remaining.innerHTML= `${11-numGuess}`;
+     userInput.removeAttribute('disabled');
+     startOver.removeChild(p);
+     playGame=true;
+
+
+  });
+} 
+
+```
+
+
 
