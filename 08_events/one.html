@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li> //avoid this approach of event
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script> 
+    //js m sabhi events sequentially run krte h, exceptions are also there
+    //second approach of events
+    //ye approach bhi koi itni khaas nahi,dikkat kchh nahi bss features kam deta h
+    // document.getElementById('owl').onclick= function(){
+    // //     alert("owl clicked");
+
+        
+    // }
+    //we should use third approach-->event listener which give the on click funmctionality and the propogation ability
+//    document.getElementById('owl').addEventListener('click',function(){
+//       alert("owl clicked again")
+   //teesra parameter yaha false hota h by default,bhot baar applications bina false and true ke poori nahi 
+   //attachEvent() purani approach
+   //jQuery- on
+//    document.getElementById('images').addEventListener('click',function(e) {
+//     console.log("clicked inside the ul");
+//    },false) //we use e-->event object in this and false->event propagation
+//    //event propogation-->1). event public= by default jo false hota h, lekin kchh scenerios m aapko 2)event capturing bhi krni pad skti h(true wala case)
+   
+//    document.getElementById('owl').addEventListener('click',function(e) {
+//     console.log("owl clicked");
+//     e.stopPropagation() //iss se hmara event bubble hokar upar nahi jaayega
+//    },false) 
+//    //event propogation=>upar waale dono code same h, bss id ka farak h,to jab hum owl pe click krenge to phle "owl clicked print hoga ",then upar waala execute hoga, 
+//    //bubbling events(isko hee bolte h inside out event propagation) upar waali line m jo smjhaya h
+//    //agr we use true instead of false then we can print first "clicked inside the ul", then owl waala print hoga
+   
+//    document.getElementById('google').addEventListener('click',function(e){
+
+//     e.preventDefault(); //google par click krke kahi or nahi jaayenge, jo kaam h vo nahi hoga
+//     e.stopPropagation();//upar wale event ki value print nahi krega
+//     console.log("google clicked");
+//    },false)
+
+
+//AB EK CHHOTA SA PROJECT KI-->IMAGE PR CLICK KRKE VO GAYAB HONI CHAHIYE
+document.querySelector('#images').addEventListener('click', function(e){
+// console.log(e.target.parentNode); //we use parentNode kyuki hum sirf image hee nahi balki vo particular image ki list delete krana chahte h to pura select krna 
+console.log(e.target.tagName);
+if(e.target.tagName==='IMG'){ //jab tag img hoga tabhi remove hhoga
+    let removeIt=e.target.parentNode
+// 1st way
+removeIt.remove(); //ab isme dikkat aari h ki agr hum image ki jagah kahi or click krre h to saari images gayab hori h, to iske liye checks(condition ) lgani pdengi
+}
+// 2nd way--> removeIt.parentNode.removeChild(removeIt)
+})
+
+
+
+
+</script>
+</html>
